@@ -18,6 +18,7 @@ public class DatabaseService : IDatabaseService
         using var conn = new SqlConnection(
             connectionString: Environment.GetEnvironmentVariable("SQLAZURECONNSTR_ContosoSuites")!
         );
+        
         conn.Open();
         using var cmd = new SqlCommand(sql, conn);
         using var reader = await cmd.ExecuteReaderAsync();
